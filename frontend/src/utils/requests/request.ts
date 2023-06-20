@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Income } from '../../types/income.type';
 
-const BASE_URL = 'http://localhost:5000/income';
+const BASE_URL = 'https://np-incomecounter.onrender.com/income';
 
 export const createNewIncome = async (data: Income) => {
   const { day, dayNumber, month, hours } = data;
