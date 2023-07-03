@@ -16,10 +16,11 @@ import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 function App() {
 
   const currentDate = new Date();
-  const formattedDay = format(currentDate, 'dd');
+  const day = currentDate.getDate();
+  const formattedDay = day < 10 ? day.toString() : format(currentDate, 'dd');
   const formattedMonth = format(currentDate, 'MM');
   const formattedDayOfWeek = format(currentDate, 'EEEE');
-  const currentMonth = months.find((month) => month.id === formattedMonth)?.value
+  const currentMonth = months.find((month) => month.id === formattedMonth)?.value;
 
   const [data, setData] = useState<Income[]>([]);
   const [existMonth, setIsExistMonth] = useState<(string)[]>([]);
