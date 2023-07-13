@@ -144,6 +144,14 @@ export const IncomeTable: FC<Props> = ({ data, setIsLoading, fetchData }) => {
             <TableCell align="right"></TableCell>
             <TableCell sx={{ fontWeight: 600 }} align="right">{totalSalary}</TableCell>
           </TableRow>
+          <TableRow sx={{ backgroundColor: '#cddc39' }}>
+            <TableCell sx={{ fontWeight: 500 }} component="th" scope="row">
+              Total income
+            </TableCell>
+            <TableCell sx={{ fontWeight: 600 }} align="right">{totalHoursSalary + totalHoursAdvance}</TableCell>
+            <TableCell align="right"></TableCell>
+            <TableCell sx={{ fontWeight: 600 }} align="right">{totalSalary + totalAdvance}</TableCell>
+          </TableRow>
         </TableBody>
       </Table>
     </TableContainer>
