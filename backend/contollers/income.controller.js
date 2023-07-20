@@ -3,7 +3,7 @@ import Income from '../model/income.model.js';
 class incomeController {
   async getIncome(req, res) {
     try {
-      const income = await Income.find();
+      const income = await Income.find().sort({ dayNumber: 'asc' });
       return res.status(200).send(income);
     } catch (e) {
       console.log(e);
