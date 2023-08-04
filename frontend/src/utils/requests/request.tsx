@@ -4,11 +4,11 @@ import { Income } from '../../types/income.type';
 const url: string = process.env.REACT_APP_URL || '';
 
 export const createNewIncome = async (data: Income) => {
-  const { day, dayNumber, month, hours } = data;
+  const { day, dayNumber, month, hours, comment } = data;
   const request = {
     method: 'post',
     url: url.concat('/'),
-    data: { day, dayNumber, month, hours },
+    data: { day, dayNumber, month, hours, comment },
   };
   const response = await axios(request);
   return response;
