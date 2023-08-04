@@ -24,6 +24,16 @@ export const NewIncomeForm = () => {
     setFieldValue('dayNumber', selectedDayNumber);
   };
 
+  const handleCheckbox = () => {
+    if (isChecked) {
+      setFieldValue('comment', '');
+      setFieldValue('hours', 8);
+    } else {
+      setFieldValue('hours', 0);
+    }
+    setIsChecked(!isChecked)
+  }
+
   useEffect(() => {
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth();
@@ -100,7 +110,7 @@ export const NewIncomeForm = () => {
           <Checkbox
             defaultChecked
             checked={isChecked}
-            onChange={() => setIsChecked(!isChecked)}
+            onChange={handleCheckbox}
             sx={{
               justifyContent: 'start',
               width: 'fit-content',
