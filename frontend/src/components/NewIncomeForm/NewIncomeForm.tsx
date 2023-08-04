@@ -1,21 +1,23 @@
-import React, { ChangeEvent, useEffect } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import { Form, Field, useFormikContext } from 'formik';
-import { Box, Button, MenuItem, TextField } from '@mui/material';
+import { Box, Button, Checkbox, FormControlLabel, MenuItem, TextField } from '@mui/material';
 import { days, dayNumbers } from '../../values/days';
 import { months } from '../../values/month';
 import { format, parse } from 'date-fns';
+import { red } from '@mui/material/colors';
 
 type FormValues = {
   day: string;
   dayNumber: string;
   month: string;
   hours: string;
+  comment?: string;
 };
 
 
 export const NewIncomeForm = () => {
   const { values, setFieldValue } = useFormikContext<FormValues>();
-
+  const [isChecked, setIsChecked] = useState(false);
 
   const handleDayNumberChange = (event: ChangeEvent<{ value: unknown }>) => {
     const selectedDayNumber = event.target.value as string;
@@ -91,8 +93,34 @@ export const NewIncomeForm = () => {
         variant="outlined"
         fullWidth
         margin="normal"
-        sx={{ mb: 3 }}
       />
+      <FormControlLabel
+        label="Did you miss a day?"
+        control={
+          <Checkbox
+            defaultChecked
+            checked={isChecked}
+            onChange={() => setIsChecked(!isChecked)}
+            sx={{
+              justifyContent: 'start',
+              width: 'fit-content',
+              color: red[800],
+              '&.Mui-checked': {
+                color: red[600],
+              },
+            }}
+          />}
+      />
+      {isChecked &&
+        <Field
+          as={TextField}
+          name="comment"
+          label="Comment"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+        />
+      }
       <Button type="submit" variant="contained" color="primary">
         Save
       </Button>

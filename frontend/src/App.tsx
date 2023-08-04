@@ -34,6 +34,7 @@ function App() {
     dayNumber: formattedDay,
     month: currentMonth || '',
     hours: 8,
+    comment: ''
   }
 
   const fetchData = async () => {
