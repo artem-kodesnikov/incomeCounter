@@ -101,7 +101,7 @@ export const IncomeTable: FC<Props> = ({ data, setIsLoading, fetchData }) => {
               return (
                 <TableRow
                   key={row._id}
-                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                  sx={row.comment.length > 0 ? { backgroundColor: 'lightblue' } : { '&:last-child td, &:last-child th': { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
                     {row.dayNumber} {row.month} - {row.day}

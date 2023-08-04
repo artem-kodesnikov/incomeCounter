@@ -14,7 +14,7 @@ class incomeController {
   async createIncome(req, res) {
     try {
       const { day, dayNumber, month, hours } = req.body;
-      const income = new Income({ day, dayNumber, month, hours });
+      const income = new Income({ day, dayNumber, month, hours, comment });
       await income.save();
       return res.status(201).send(income);
     } catch (e) {

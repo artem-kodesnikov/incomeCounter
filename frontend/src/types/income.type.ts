@@ -4,4 +4,5 @@ export interface Income {
   dayNumber: string,
   month: string,
   hours: number,
+  comment: string
 }
